@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Link } from 'react-scroll';
 import PropTypes from 'prop-types';
 import useNav from '../../../../hooks/useNav';
+import IonIcon from '@reacticons/ionicons';
 
-export const HeaderNavItem = ({ to, children, i, onClick }) => {
+export const HeaderNavItem: FunctionComponent<{
+  to: string;
+  i: any;
+  onClick: () => void;
+}> = ({ to, children, i, onClick }) => {
   const { handleNav } = useNav(onClick, to);
 
   return (
@@ -16,7 +21,7 @@ export const HeaderNavItem = ({ to, children, i, onClick }) => {
         duration={500}
         onClick={handleNav}
       >
-        <ion-icon name={i}></ion-icon>
+        <IonIcon className="ion-icon" name={i} />
         {children}
       </Link>
     </li>

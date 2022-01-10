@@ -1,13 +1,11 @@
 import * as React from 'react';
 import DataService from '../services/DataService';
 import DataContext from '../contexts/data';
-import divideBySection from '../utils/divideBySection';
 import { Element } from 'react-scroll';
 import { Hero } from '../components/hero/Hero';
 import { About } from '../components/about/About';
 import { Portfolio } from '../components/portfolio/Portfolio';
 import BasicLayout from '../components/templates/BasicLayout';
-import { Contact } from '../components/contact/Contact';
 import HeroInterface from '../interfaces/Hero';
 import Global from '../interfaces/Global';
 import Project from '../interfaces/Project';

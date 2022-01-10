@@ -15,7 +15,7 @@ export const PortfolioItemList = () => {
         rowSpacing={{ xs: 3, md: 0 }}
         justifyContent="center"
       >
-        {projects.map((project, index) => (
+        {projects.map((project) => (
           <Grid item xs={12} md={4} key={project.id}>
             <PortfolioItem {...project} />
           </Grid>

@@ -1,11 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Link from '../../link/Link';
-import Image from 'next/image';
+
 import { Button, Typography } from '@mui/material';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
+import PropTypes from 'prop-types';
+
+import Image from 'next/image';
+
+import Link from '../../link/Link';
+
 import Project from '../../../interfaces/Project';
 
-export const PortfolioItem = ({ title, coverImage, hero, slug }: Project) => {
+export const PortfolioItem = ({ coverImage, hero, slug }: Project) => {
   return (
     <div className="portfolio-item">
       <Image
@@ -22,9 +28,8 @@ export const PortfolioItem = ({ title, coverImage, hero, slug }: Project) => {
           {hero}
         </Typography>
         <Link href={`/app/${slug}`}>
-          <Button variant="outlined">
+          <Button variant="outlined" endIcon={<ArrowForwardIosIcon />}>
             Visitar
-            <ion-icon name="chevron-forward-outline"></ion-icon>
           </Button>
         </Link>
       </div>

@@ -1,7 +1,7 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback } from 'react';
 import { scroller } from 'react-scroll';
 
-const useNav = (onClick, to) => {
+const useNav = (onClick: () => void, to: string): { handleNav: () => void } => {
   // const isOnHome = useMemo(() => !location.pathname.split('/')[1], [
   //   location.pathname,
   // ]);

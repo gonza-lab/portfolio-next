@@ -4,7 +4,7 @@ interface SocialNetwork {
   id: number;
   title: string;
   url: string;
-  icon: string;
+  icon: 'logo-linkedin' | 'logo-github';
 }
 
 export default interface Global {
