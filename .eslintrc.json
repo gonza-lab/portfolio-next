@@ -1,38 +1,3 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "node": true
-  },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": 12,
-    "sourceType": "module"
-  },
-  "plugins": ["react", "@typescript-eslint"],
-  "rules": {
-    "@typescript-eslint/explicit-function-return-type": "error"
-  },
-  "overrides": [
-    {
-      "files": ["*.tsx", "*.js"],
-      "rules": {
-        "@typescript-eslint/explicit-function-return-type": "off"
-      }
-    }
-  ],
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  }
+  "extends": ["prettier", "next/core-web-vitals"]
 }

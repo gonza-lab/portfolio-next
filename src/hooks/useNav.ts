@@ -1,23 +1,17 @@
+import { useRouter } from 'next/router';
 import { useCallback } from 'react';
 import { scroller } from 'react-scroll';
 
-const useNav = (onClick: () => void, to: string): { handleNav: () => void } => {
-  const isOnHome = true;
+const useNav = (onClick?: () => void): { handleNav: () => void } => {
+  const router = useRouter();
 
   const handleNav = useCallback(() => {
-    if (onClick) {
-      onClick();
+    if (router.asPath !== '/') {
+      router.push('/');
     }
 
-    if (!isOnHome) {
-      setTimeout(() => {
-        scroller.scrollTo(to, {
-          duration: 500,
-          smooth: true,
-        });
-      }, 100);
-    }
-  }, [onClick, to]);
+    if (onClick) onClick();
+  }, [onClick, router]);
 
   return { handleNav };
 };

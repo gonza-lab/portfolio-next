@@ -12,6 +12,7 @@ import theme from '../theme';
 import createEmotionCache from '../utils/createEmotionCache';
 
 import '../styles/index.scss';
+import { useRouter } from 'next/router';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -22,24 +23,25 @@ interface MyAppProps extends AppProps {
 
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const canonicalURL = process.env.NEXT_PUBLIC_DOMAIN + useRouter().asPath;
+
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-        <title>Gonzalo Flores</title>
-        <meta name="theme-color" content={theme.palette.primary.main} />
-
+        <title>Gonzalo Flores | Portfolio</title>
+        <meta name="theme-color" content={theme.palette.secondary.main} />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="*"
+        <meta
+          name="description"
+          content="Portfolio de Gonzalo Flores, un desarrollador Full Stack Javascript"
         />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        ></link>
+        <meta
+          name="keywords"
+          content="HTML, CSS, JavaScript, ReactJS, Angular, NodeJS, Next, Nest, MySQL, MongoDB"
+        />
+
+        {/* CANONICAL */}
+        <link rel="canonical" href={canonicalURL} />
 
         {/* FAVICON */}
         <link

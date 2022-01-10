@@ -12,7 +12,7 @@ export const Hero = () => {
       <Image
         className="hero__img-container"
         layout="fill"
-        alt=""
+        alt={hero?.cover.alternativeText}
         src={hero?.cover.url || ''}
         priority
       />
