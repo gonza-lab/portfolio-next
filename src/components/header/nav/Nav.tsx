@@ -8,7 +8,7 @@ export const HeaderNav = () => {
     if (router.asPath !== '/') {
       router.push('/');
     }
-  }, []);
+  }, [router]);
 
   return (
     <nav className="header-nav">
