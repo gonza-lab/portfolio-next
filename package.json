@@ -11,7 +11,6 @@
 		"@mui/lab": "^5.0.0-alpha.53",
 		"@mui/material": "latest",
 		"@reacticons/ionicons": "^6.0.0",
-		"animate.css": "^4.1.1",
 		"axios": "^0.24.0",
 		"clsx": "latest",
 		"dayjs": "^1.10.7",
@@ -33,7 +32,8 @@
 		"dev": "next",
 		"build": "next build",
 		"start": "next start",
-		"post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
+		"post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest",
+		"lint": "npx eslint src/*"
 	},
 	"devDependencies": {
 		"@types/node": "latest",

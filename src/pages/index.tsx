@@ -10,6 +10,7 @@ import HeroInterface from '../interfaces/Hero';
 import Global from '../interfaces/Global';
 import Project from '../interfaces/Project';
 import AboutInterface from '../interfaces/About';
+import { Box } from '@mui/material';
 
 interface Props {
   data: {
@@ -44,7 +45,7 @@ export default function Index({ data }: Props) {
   return (
     <DataContext.Provider value={{ ...data }}>
       <BasicLayout>
-        <div className="screens-root">
+        <Box>
           <Element name="home" className="section">
             <Hero />
           </Element>
@@ -55,11 +56,8 @@ export default function Index({ data }: Props) {
             <Element name="portfolio" className="section">
               <Portfolio />
             </Element>
-            {/* <Element name="contact" className="section">
-              <Contact />
-            </Element> */}
           </main>
-        </div>
+        </Box>
       </BasicLayout>
     </DataContext.Provider>
   );
