@@ -16,6 +16,9 @@ const Markdown = ({ children }: { children: string }) => {
             {children}
           </Typography>
         ),
+        p: ({ children }) => (
+          <Typography variant="body1">{children}</Typography>
+        ),
       }}
     >
       {children}

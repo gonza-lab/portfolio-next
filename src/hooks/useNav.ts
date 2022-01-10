@@ -2,10 +2,6 @@ import { useCallback } from 'react';
 import { scroller } from 'react-scroll';
 
 const useNav = (onClick: () => void, to: string): { handleNav: () => void } => {
-  // const isOnHome = useMemo(() => !location.pathname.split('/')[1], [
-  //   location.pathname,
-  // ]);
-
   const isOnHome = true;
 
   const handleNav = useCallback(() => {
@@ -14,7 +10,6 @@ const useNav = (onClick: () => void, to: string): { handleNav: () => void } => {
     }
 
     if (!isOnHome) {
-      // history.push('/');
       setTimeout(() => {
         scroller.scrollTo(to, {
           duration: 500,
