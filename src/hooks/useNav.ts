@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
 import { useCallback } from 'react';
-import { scroller } from 'react-scroll';
 
 const useNav = (onClick?: () => void): { handleNav: () => void } => {
   const router = useRouter();
