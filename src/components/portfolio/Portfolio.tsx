@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Container, Typography } from '@mui/material';
-import Fade from 'react-reveal/Fade';
+import { Fade } from 'react-reveal';
 
 import { PortfolioItemList } from './item/List';
 

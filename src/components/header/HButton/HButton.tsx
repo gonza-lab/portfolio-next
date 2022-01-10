@@ -1,7 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FunctionComponent } from 'react';
 
-export const HeaderHButton = ({ onChange, isActive }) => {
+export const HeaderHButton: FunctionComponent<{
+  onChange: () => void;
+  isActive: boolean;
+}> = ({ onChange, isActive }) => {
   return (
     <button
       className={
@@ -16,9 +18,4 @@ export const HeaderHButton = ({ onChange, isActive }) => {
       </span>
     </button>
   );
-};
-
-HeaderHButton.propTypes = {
-  onChange: PropTypes.func.isRequired,
-  isActive: PropTypes.bool.isRequired,
 };

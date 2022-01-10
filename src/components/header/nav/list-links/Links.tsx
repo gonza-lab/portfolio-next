@@ -1,8 +1,10 @@
-import React from 'react';
-import { HeaderNavItem } from '../Item/Item';
-import PropTypes from 'prop-types';
+import React, { FunctionComponent } from 'react';
 
-export const HeaderNavListLinks = ({ onClick }) => {
+import { HeaderNavItem } from '../Item/Item';
+
+export const HeaderNavListLinks: FunctionComponent<{ onClick: () => void }> = ({
+  onClick,
+}) => {
   return (
     <ul>
       <HeaderNavItem onClick={onClick} to="home" i="home-outline">
@@ -16,8 +18,4 @@ export const HeaderNavListLinks = ({ onClick }) => {
       </HeaderNavItem>
     </ul>
   );
-};
-
-HeaderNavListLinks.propTypes = {
-  onClick: PropTypes.func.isRequired,
 };
