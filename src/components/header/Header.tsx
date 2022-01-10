@@ -32,7 +32,13 @@ const Header = () => {
           <Image layout="fill" alt="Gonzalo Flores" src={global.avatar.url} />
         </div>
         <span>
-          <Link onClick={handleNav} smooth={true} duration={500} to="home">
+          <Link
+            href="/"
+            onClick={handleNav}
+            smooth={true}
+            duration={500}
+            to="home"
+          >
             Gonzalo Flores
           </Link>
         </span>

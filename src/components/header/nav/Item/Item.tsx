@@ -18,6 +18,7 @@ export const HeaderNavItem: FunctionComponent<{
         smooth={true}
         duration={500}
         onClick={handleNav}
+        href="/"
       >
         <IonIcon className="ion-icon" name={i} />
         {children}
