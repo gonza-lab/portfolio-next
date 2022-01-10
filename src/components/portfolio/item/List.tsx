@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { PortfolioItem } from './Item';
-import Fade from 'react-reveal/Fade';
+import { Fade } from 'react-reveal';
 import DataContext from '../../../contexts/data';
 import { Grid } from '@mui/material';
 

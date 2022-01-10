@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import { Grid } from '@mui/material';
 
-import Fade from 'react-reveal/Fade';
+import { Fade } from 'react-reveal';
 
 import DataContext from '../../../contexts/data';
 
