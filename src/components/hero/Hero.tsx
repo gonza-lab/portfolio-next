@@ -14,6 +14,7 @@ export const Hero = () => {
         layout="fill"
         alt=""
         src={hero?.cover.url || ''}
+        priority
       />
       <div className="hero__presentation">
         <Typography variant="h1">Gonzalo Flores</Typography>
