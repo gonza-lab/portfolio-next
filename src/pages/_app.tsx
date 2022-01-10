@@ -28,10 +28,17 @@ export default function MyApp(props: MyAppProps) {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-        <title>Gonzalo Flores</title>
-        <meta name="theme-color" content={theme.palette.primary.main} />
-
+        <title>Gonzalo Flores | Portfolio</title>
+        <meta name="theme-color" content={theme.palette.secondary.main} />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <meta
+          name="description"
+          content="Portfolio de Gonzalo Flores, un desarrollador Full Stack Javascript"
+        />
+        <meta
+          name="keywords"
+          content="HTML, CSS, JavaScript, ReactJS, Angular, NodeJS, Next, Nest, MySQL, MongoDB"
+        />
 
         {/* CANONICAL */}
         <link rel="canonical" href={canonicalURL} />
