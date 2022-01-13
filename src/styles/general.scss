@@ -37,7 +37,7 @@ body {
   line-height: 1.5;
   margin: 0;
 
-  header + * {
+  .header-wrapper + * {
     margin-left: 300px;
 
     @media (max-width: 1200px) {

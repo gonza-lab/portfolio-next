@@ -46,7 +46,6 @@ const theme = createTheme(
         styleOverrides: {
           ul: {
             [themeBreakpoints.breakpoints.down('md')]: {
-              // background: 'red',
               paddingLeft: 30,
             },
           },

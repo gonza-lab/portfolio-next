@@ -1,17 +1,39 @@
 @import '../../styles/general.scss';
 
+.header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 9997;
+  transition: all 0.5s;
+  height: 100%;
+  display: flex;
+
+  > header {
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 1200px) {
+    width: 100%;
+    left: -300px;
+
+    &__background {
+      width: 100%;
+    }
+  }
+
+  &__expanded {
+    left: 0;
+  }
+}
+
 .header {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   -webkit-tap-highlight-color: transparent;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
   width: 300px;
-  z-index: 9997;
-  transition: all 0.5s;
   padding: 15px;
   overflow-y: auto;
   background-color: $dark-1;
@@ -106,11 +128,16 @@
     }
   }
 
-  @media (max-width: 1200px) {
-    left: -300px;
-  }
-}
+  .header-nav {
+    color: white;
+    margin-top: 30px;
 
-.header__expanded {
-  left: 0;
+    > ul {
+      margin: 0;
+      padding: 0;
+      > li {
+        list-style-type: none;
+      }
+    }
+  }
 }

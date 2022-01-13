@@ -1,13 +1,14 @@
 import React, { FunctionComponent } from 'react';
 import { Link } from 'react-scroll';
-import useNav from '../../../../hooks/useNav';
+import useNav from '../../../hooks/useNav';
 import IonIcon from '@reacticons/ionicons';
 
-export const HeaderNavItem: FunctionComponent<{
+export const HeaderItem: FunctionComponent<{
   to: string;
   i: any;
-}> = ({ to, children, i }) => {
-  const { handleNav } = useNav();
+  onClick?: () => void;
+}> = ({ to, children, i, onClick }) => {
+  const { handleNav } = useNav(onClick);
 
   return (
     <li className="header-nav-item">

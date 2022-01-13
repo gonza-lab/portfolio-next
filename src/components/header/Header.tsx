@@ -10,9 +10,9 @@ import useNav from '../../hooks/useNav';
 
 import DataContext from '../../contexts/data';
 
-import { HeaderNav } from './nav/Nav';
-
 import { HeaderHButton } from './HButton/HButton';
+import { HeaderItem } from './Item/Item';
+import { Box } from '@mui/material';
 
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -26,35 +26,61 @@ const Header = () => {
   const { handleNav } = useNav(handleToggleNav);
 
   return (
-    <header className={'header' + (isNavOpen ? ' header__expanded' : '')}>
-      <div className="profile">
-        <div className="profile__img">
-          <Image layout="fill" alt="Gonzalo Flores" src={global.avatar.url} />
+    <Box
+      className={
+        'header-wrapper' + (isNavOpen ? ' header-wrapper__expanded' : '')
+      }
+    >
+      <header className={'header'}>
+        <div className="profile">
+          <div className="profile__img">
+            <Image layout="fill" alt="Gonzalo Flores" src={global.avatar.url} />
+          </div>
+          <span>
+            <Link
+              href="/"
+              onClick={handleNav}
+              smooth={true}
+              duration={500}
+              to="home"
+            >
+              Gonzalo Flores
+            </Link>
+          </span>
+          <div className="profile__social">
+            {global.socialNetworks.map((social) => (
+              <button key={social.id}>
+                <a target="_blank" rel="noreferrer" href={social.url}>
+                  <IonIcon className="ion-icon" name={social.icon} />
+                </a>
+              </button>
+            ))}
+          </div>
         </div>
-        <span>
-          <Link
-            href="/"
-            onClick={handleNav}
-            smooth={true}
-            duration={500}
-            to="home"
-          >
-            Gonzalo Flores
-          </Link>
-        </span>
-        <div className="profile__social">
-          {global.socialNetworks.map((social) => (
-            <button key={social.id}>
-              <a target="_blank" rel="noreferrer" href={social.url}>
-                <IonIcon className="ion-icon" name={social.icon} />
-              </a>
-            </button>
-          ))}
-        </div>
-      </div>
-      <HeaderNav />
-      <HeaderHButton onChange={handleToggleNav} isActive={isNavOpen} />
-    </header>
+        <nav className="header-nav">
+          <ul>
+            <HeaderItem onClick={handleToggleNav} to="home" i="home-outline">
+              Home
+            </HeaderItem>
+            <HeaderItem onClick={handleToggleNav} to="about" i="person-outline">
+              Sobre mi
+            </HeaderItem>
+            <HeaderItem
+              onClick={handleToggleNav}
+              to="portfolio"
+              i="folder-outline"
+            >
+              Proyectos
+            </HeaderItem>
+          </ul>
+        </nav>
+        <HeaderHButton onChange={handleToggleNav} isActive={isNavOpen} />
+      </header>
+      <Box
+        className="header-wrapper__background"
+        onClick={handleToggleNav}
+      ></Box>
+    </Box>
   );
 };
 
