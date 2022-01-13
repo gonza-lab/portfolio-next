@@ -15,6 +15,7 @@ export const Hero = () => {
         alt={hero?.cover.alternativeText}
         src={hero?.cover.url || ''}
         priority
+        quality={100}
       />
       <div className="hero__presentation">
         <Typography variant="h1">Gonzalo Flores</Typography>
