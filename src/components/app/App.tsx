@@ -23,7 +23,7 @@ const App: FunctionComponent<{ app: Project }> = ({ app }) => {
       >
         {app.title}
       </Typography>
-      <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+      <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', mb: 4 }}>
         <Typography variant="subtitle1">
           {dayjs(app.date).format('DD/MM/YYYY')}
         </Typography>
