@@ -19,7 +19,7 @@ const App: FunctionComponent<{ app: Project }> = ({ app }) => {
         variant="h2"
         color="secondary.dark"
         component="h1"
-        fontWeight="bolder"
+        fontWeight={600}
       >
         {app.title}
       </Typography>

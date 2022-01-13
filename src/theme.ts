@@ -31,6 +31,7 @@ const theme = createTheme(
         },
       },
       h3: {
+        fontWeight: 500,
         fontSize: '1.5rem',
         [themeBreakpoints.breakpoints.down('sm')]: {
           fontSize: '1.3rem',
@@ -41,6 +42,19 @@ const theme = createTheme(
       },
     },
     components: {
+      MuiCssBaseline: {
+        styleOverrides: {
+          ul: {
+            [themeBreakpoints.breakpoints.down('md')]: {
+              // background: 'red',
+              paddingLeft: 30,
+            },
+          },
+          'li + li': {
+            marginTop: 5,
+          },
+        },
+      },
       MuiContainer: {
         styleOverrides: {
           root: {

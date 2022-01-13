@@ -12,7 +12,7 @@ const Markdown = ({ children }: { children: string }) => {
           </Link>
         ),
         h2: ({ children }) => (
-          <Typography variant="h3" component="h2" mt={4}>
+          <Typography variant="h3" component="h2" mt={4} mb={1}>
             {children}
           </Typography>
         ),
