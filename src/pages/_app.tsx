@@ -28,7 +28,10 @@ export default function MyApp(props: MyAppProps) {
   const canonicalURL = process.env.NEXT_PUBLIC_DOMAIN + useRouter().asPath;
 
   React.useEffect(() => {
-    ReactGA.initialize('G-NG839S1G66');
+    const { NEXT_PUBLIC_GA } = process.env;
+    if (NEXT_PUBLIC_GA) {
+      ReactGA.initialize(NEXT_PUBLIC_GA);
+    }
   }, []);
 
   return (
