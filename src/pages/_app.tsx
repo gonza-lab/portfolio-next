@@ -14,6 +14,8 @@ import createEmotionCache from '../utils/createEmotionCache';
 import '../styles/index.scss';
 import { useRouter } from 'next/router';
 
+import ReactGA from 'react-ga4';
+
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
@@ -24,6 +26,10 @@ interface MyAppProps extends AppProps {
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const canonicalURL = process.env.NEXT_PUBLIC_DOMAIN + useRouter().asPath;
+
+  React.useEffect(() => {
+    ReactGA.initialize('G-NG839S1G66');
+  }, []);
 
   return (
     <CacheProvider value={emotionCache}>
