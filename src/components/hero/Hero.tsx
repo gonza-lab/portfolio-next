@@ -18,7 +18,7 @@ export const Hero = () => {
         quality={80}
       />
       <div className="hero__presentation">
-        <Typography variant="h1">Gonza Flores :D</Typography>
+        <Typography variant="h1">Gonzalo Flores</Typography>
         <div>
           <span>Yo soy </span>
           <Typewriter
