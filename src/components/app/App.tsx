@@ -1,9 +1,11 @@
 import React, { FunctionComponent } from 'react';
 
 import { Box, Link, Typography } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 import dayjs from 'dayjs';
 
+import NextLink from 'next/link';
 import Image from 'next/image';
 
 import Project from '../../interfaces/Project';
@@ -15,24 +17,31 @@ import Markdown from '../markdown/Markdown';
 const App: FunctionComponent<{ app: Project }> = ({ app }) => {
   return (
     <Box>
+      <NextLink href="/">
+        <Link
+          href="/"
+          sx={{ display: 'flex', alignItems: 'center' }}
+          underline="none"
+          mb={2}
+        >
+          <ArrowBackIcon fontSize="small" />
+          Volver
+        </Link>
+      </NextLink>
       <Typography
         variant="h2"
         color="secondary.dark"
         component="h1"
         fontWeight={600}
       >
-        {app.title}
+        <Link href={app.url} underline="hover" color="inherit" target="_blank">
+          {app.title}
+        </Link>
       </Typography>
       <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', mb: 4 }}>
         <Typography variant="subtitle1">
           {dayjs(app.date).format('DD/MM/YYYY')}
         </Typography>
-        <Box sx={{ height: '20px', borderRight: '1px solid black' }}></Box>
-        {app.url && (
-          <Link target="_blank" href={app.url} sx={{ mt: '3px' }}>
-            Link
-          </Link>
-        )}
       </Box>
       {app.content.map((component) => {
         switch (component.__component) {
