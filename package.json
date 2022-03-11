@@ -28,6 +28,7 @@
 		"react-switch": "^6.0.0",
 		"sass": "^1.43.4",
 		"sharp": "^0.29.3",
+		"swiper": "^8.0.7",
 		"typewriter-effect": "^2.18.2"
 	},
 	"scripts": {

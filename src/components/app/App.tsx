@@ -8,6 +8,9 @@ import dayjs from 'dayjs';
 import NextLink from 'next/link';
 import Image from 'next/image';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper';
+
 import Project from '../../interfaces/Project';
 
 import { Components } from '../../enums/Components';
@@ -48,9 +51,36 @@ const App: FunctionComponent<{ app: Project }> = ({ app }) => {
           case Components.RichText:
             return <Markdown key={component.id}>{component.content}</Markdown>;
           case Components.Slider:
-            return <div key={component.id}>un slider feliz :D</div>;
+            return (
+              <Swiper
+                style={{
+                  height: 600,
+                  marginTop: 16,
+                }}
+                loop
+                modules={[Autoplay]}
+                autoplay={{
+                  delay: 2500,
+                  pauseOnMouseEnter: true,
+                  disableOnInteraction: false,
+                }}
+              >
+                {component.images.map((image) => (
+                  <SwiperSlide key={image.id}>
+                    <Image
+                      layout="fill"
+                      objectFit="cover"
+                      objectPosition="top"
+                      alt={image.alternativeText}
+                      src={image.url}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            );
 
           case Components.LargeMedia:
+            console.log(component);
             return (
               <Image
                 key={component.id}
