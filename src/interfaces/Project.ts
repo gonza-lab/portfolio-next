@@ -4,7 +4,7 @@ import Image from './strapi/Image';
 export default interface Project {
   id: number;
   url?: string;
-  title: string;
+  name: string;
   description: string;
   date: string;
   slug: string;
@@ -12,5 +12,5 @@ export default interface Project {
   updated_at: Date;
   content: Component[];
   coverImage: Image;
-  hero: string;
+  technologies: string;
 }
