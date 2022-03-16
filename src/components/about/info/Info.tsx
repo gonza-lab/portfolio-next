@@ -35,7 +35,7 @@ export const AboutInfo = () => {
           >
             <Grid item xs={12}>
               <h3>Habilidades</h3>
-              {about && <Markdown>{about.skills}</Markdown>}
+              {about && <Markdown>{about.attributes.skills}</Markdown>}
             </Grid>
           </Grid>
         </Fade>

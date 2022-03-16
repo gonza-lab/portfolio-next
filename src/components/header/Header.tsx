@@ -1,5 +1,7 @@
 import React, { useCallback, useContext, useState } from 'react';
 
+import { Box } from '@mui/material';
+
 import Image from 'next/image';
 
 import { Link } from 'react-scroll';
@@ -12,7 +14,6 @@ import DataContext from '../../contexts/data';
 
 import { HeaderHButton } from './HButton/HButton';
 import { HeaderItem } from './Item/Item';
-import { Box } from '@mui/material';
 
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -34,7 +35,11 @@ const Header = () => {
       <header className={'header'}>
         <div className="profile">
           <div className="profile__img">
-            <Image layout="fill" alt="Gonzalo Flores" src={global.avatar.url} />
+            <Image
+              layout="fill"
+              alt="Gonzalo Flores"
+              src={global.attributes.avatar.data.attributes.url}
+            />
           </div>
           <span>
             <Link
@@ -48,7 +53,7 @@ const Header = () => {
             </Link>
           </span>
           <div className="profile__social">
-            {global.socialNetworks.map((social) => (
+            {global.attributes.socialNetworks.map((social) => (
               <button key={social.id}>
                 <a target="_blank" rel="noreferrer" href={social.url}>
                   <IonIcon className="ion-icon" name={social.icon} />

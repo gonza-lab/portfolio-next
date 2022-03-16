@@ -1,16 +1,16 @@
 import { Component } from './strapi/components/Components';
 import Image from './strapi/Image';
+import { ResponseData } from './strapi/Response';
 
 export default interface Project {
-  id: number;
-  url?: string;
-  title: string;
+  name: string;
   description: string;
-  date: string;
-  slug: string;
-  created_at: Date;
-  updated_at: Date;
+  date: Date;
   content: Component[];
-  coverImage: Image;
+  cover: {
+    data: ResponseData<Image>;
+  };
+  slug: string;
   hero: string;
+  url?: string;
 }

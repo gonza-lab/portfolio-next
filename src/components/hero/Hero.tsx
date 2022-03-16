@@ -1,7 +1,11 @@
-import { Typography } from '@mui/material';
-import Image from 'next/image';
 import React, { useContext } from 'react';
+
+import { Typography } from '@mui/material';
+
+import Image from 'next/image';
+
 import Typewriter from 'typewriter-effect';
+
 import DataContext from '../../contexts/data';
 
 export const Hero = () => {
@@ -12,8 +16,8 @@ export const Hero = () => {
       <Image
         className="hero__img-container"
         layout="fill"
-        alt={hero?.cover.alternativeText}
-        src={hero?.cover.url || ''}
+        alt={hero?.attributes.cover.data.attributes.alternativeText}
+        src={hero?.attributes.cover.data.attributes.url || ''}
         priority
         quality={80}
       />
@@ -23,7 +27,7 @@ export const Hero = () => {
           <span>Yo soy </span>
           <Typewriter
             options={{
-              strings: hero?.words.map(({ word }) => word),
+              strings: hero?.attributes.words.split(','),
               autoStart: true,
               loop: true,
             }}
