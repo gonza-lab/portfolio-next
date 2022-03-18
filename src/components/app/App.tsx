@@ -16,8 +16,9 @@ import Project from '../../interfaces/Project';
 import { Components } from '../../enums/Components';
 
 import Markdown from '../markdown/Markdown';
+import { ResponseData } from '../../interfaces/strapi/Response';
 
-const App: FunctionComponent<{ app: Project }> = ({ app }) => {
+const App: FunctionComponent<{ app: ResponseData<Project> }> = ({ app }) => {
   return (
     <Box>
       <NextLink href="/">
@@ -37,16 +38,21 @@ const App: FunctionComponent<{ app: Project }> = ({ app }) => {
         component="h1"
         fontWeight={600}
       >
-        <Link href={app.url} underline="hover" color="inherit" target="_blank">
-          {app.title}
+        <Link
+          href={app.attributes.url}
+          underline="hover"
+          color="inherit"
+          target="_blank"
+        >
+          {app.attributes.name}
         </Link>
       </Typography>
       <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', mb: 4 }}>
         <Typography variant="subtitle1">
-          {dayjs(app.date).format('DD/MM/YYYY')}
+          {dayjs(app.attributes.date).format('DD/MM/YYYY')}
         </Typography>
       </Box>
-      {app.content.map((component) => {
+      {app.attributes.content.map((component) => {
         switch (component.__component) {
           case Components.RichText:
             return <Markdown key={component.id}>{component.content}</Markdown>;
@@ -65,14 +71,14 @@ const App: FunctionComponent<{ app: Project }> = ({ app }) => {
                   disableOnInteraction: false,
                 }}
               >
-                {component.images.map((image) => (
+                {component.images.data.map((image) => (
                   <SwiperSlide key={image.id}>
                     <Image
                       layout="fill"
                       objectFit="cover"
                       objectPosition="top"
-                      alt={image.alternativeText}
-                      src={image.url}
+                      alt={image.attributes.alternativeText}
+                      src={image.attributes.url}
                     />
                   </SwiperSlide>
                 ))}

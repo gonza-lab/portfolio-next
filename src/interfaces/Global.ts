@@ -1,4 +1,5 @@
 import Image from './strapi/Image';
+import { ResponseData } from './strapi/Response';
 
 interface SocialNetwork {
   id: number;
@@ -12,8 +13,6 @@ export default interface Global {
   siteName: string;
   contactEmail: string;
   siteLanguage: string;
-  created_at: Date;
-  updated_at: Date;
   socialNetworks: SocialNetwork[];
-  avatar: Image;
+  avatar: { data: ResponseData<Image> };
 }

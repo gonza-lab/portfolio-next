@@ -18,7 +18,6 @@ interface Formats {
 }
 
 export default interface Image {
-  id: number;
   name: string;
   alternativeText?: string;
   caption?: string;
@@ -34,6 +33,4 @@ export default interface Image {
   provider: string;
   provider_metadata?: object;
   related?: string;
-  created_at: Date;
-  updated_at: Date;
 }

@@ -3,14 +3,20 @@ import About from '../interfaces/About';
 import Global from '../interfaces/Global';
 import Hero from '../interfaces/Hero';
 import Project from '../interfaces/Project';
+import { ResponseData } from '../interfaces/strapi/Response';
 
-interface DataContext {
-  about?: About;
-  hero?: Hero;
-  global: Global;
-  projects: Project[];
+export interface IDataContext {
+  about?: ResponseData<About>;
+  hero?: ResponseData<Hero>;
+  global: ResponseData<Global>;
+  projects: ResponseData<Project>[];
 }
 
-const DataContext = React.createContext<DataContext>({} as DataContext);
+export interface IDataContextProject {
+  global: ResponseData<Global>;
+  projects: ResponseData<Project>[];
+}
+
+const DataContext = React.createContext<IDataContext>({} as IDataContext);
 
 export default DataContext;

@@ -1,41 +1,34 @@
 import * as React from 'react';
-import DataService from '../services/DataService';
-import DataContext from '../contexts/data';
 import { Element } from 'react-scroll';
+import { Box } from '@mui/material';
+
+import DataService from '../services/DataService';
+import DataContext, { IDataContext } from '../contexts/data';
+
+import BasicLayout from '../components/templates/BasicLayout';
 import { Hero } from '../components/hero/Hero';
 import { About } from '../components/about/About';
 import { Portfolio } from '../components/portfolio/Portfolio';
-import BasicLayout from '../components/templates/BasicLayout';
-import HeroInterface from '../interfaces/Hero';
-import Global from '../interfaces/Global';
-import Project from '../interfaces/Project';
-import AboutInterface from '../interfaces/About';
-import { Box } from '@mui/material';
 
 interface Props {
-  data: {
-    hero: HeroInterface;
-    global: Global;
-    projects: Project[];
-    about: AboutInterface;
-  };
+  data: IDataContext;
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(): Promise<{ props: Props }> {
   const dataService = new DataService();
 
-  const hero = await dataService.getHero();
   const global = await dataService.getGlobal();
-  const about = await dataService.getAbout();
+  const hero = await dataService.getHero();
   const projects = await dataService.getProjects();
+  const about = await dataService.getAbout();
 
   return {
     props: {
       data: {
         global,
         hero,
-        about,
         projects,
+        about,
       },
     }, // will be passed to the page component as props
   };

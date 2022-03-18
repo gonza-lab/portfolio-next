@@ -8,43 +8,13 @@ import Image from 'next/image';
 import Link from '../../link/Link';
 
 import Project from '../../../interfaces/Project';
+import { ResponseData } from '../../../interfaces/strapi/Response';
 
 import GitHubIcon from '@mui/icons-material/GitHub';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 
-// export const PortfolioItem = ({ coverImage, hero, slug, ...rest }: Project) => {
-//   return (
-//     <div className="portfolio-item">
-//       <Image
-//         layout="fill"
-//         alt={coverImage.alternativeText}
-//         src={coverImage.formats.large.url}
-//       />
-//       <div className="portfolio-item__details">
-//         <Typography
-//           className="portfolio-item__details-content"
-//           variant="body1"
-//           marginBottom={{ xs: '1.8rem' }}
-//         >
-//           {hero}
-//         </Typography>
-//         <Link href={`/app/${slug}`}>
-//           <Button variant="outlined" endIcon={<ArrowForwardIosIcon />}>
-//             Visitar
-//           </Button>
-//         </Link>
-//       </div>
-//       <div className="portfolio-item__overlay"></div>
-//     </div>
-//   );
-// };
-
-export const PortfolioItem: FC<Project> = ({
-  name,
-  coverImage,
-  description,
-}) => {
+export const PortfolioItem: FC<ResponseData<Project>> = ({ attributes }) => {
   return (
     <Grid
       container
@@ -63,8 +33,8 @@ export const PortfolioItem: FC<Project> = ({
         }}
       >
         <Image
-          src={coverImage.formats.large.url}
-          alt={coverImage.alternativeText}
+          src={attributes.cover.data.attributes.formats.large.url}
+          alt={attributes.cover.data.attributes.alternativeText}
           layout="fill"
           objectFit="cover"
         />
@@ -79,7 +49,7 @@ export const PortfolioItem: FC<Project> = ({
         gap={2}
       >
         <Typography variant="h3" fontWeight="600" color="secondary">
-          {name}
+          {attributes.name}
         </Typography>
         <Box
           sx={{
@@ -91,7 +61,7 @@ export const PortfolioItem: FC<Project> = ({
             mt: 2,
           }}
         >
-          {description}
+          {attributes.description}
         </Box>
         <Box sx={{ display: 'flex', gap: 2 }}>
           {['Next', 'React', 'Redux', 'MaterialUI'].map((tech) => (
@@ -101,9 +71,11 @@ export const PortfolioItem: FC<Project> = ({
           ))}
         </Box>
         <Box sx={{ display: 'flex', gap: 1 }}>
-          <IconButton>
-            <GitHubIcon />
-          </IconButton>
+          {attributes.github && (
+            <IconButton>
+              <GitHubIcon />
+            </IconButton>
+          )}
           <IconButton>
             <OpenInNewIcon />
           </IconButton>

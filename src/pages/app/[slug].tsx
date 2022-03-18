@@ -6,19 +6,13 @@ import { GetServerSidePropsContext } from 'next';
 
 import DataService from '../../services/DataService';
 
-import Project from '../../interfaces/Project';
-import Global from '../../interfaces/Global';
-
-import DataContext from '../../contexts/data';
+import DataContext, { IDataContextProject } from '../../contexts/data';
 
 import BasicLayout from '../../components/templates/BasicLayout';
 import App from '../../components/app/App';
 
 interface Props {
-  data: {
-    projects: Project[];
-    global: Global;
-  };
+  data: IDataContextProject;
 }
 
 export async function getServerSideProps(
