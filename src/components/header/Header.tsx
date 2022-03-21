@@ -67,15 +67,15 @@ const Header = () => {
             <HeaderItem onClick={handleToggleNav} to="home" i="home-outline">
               Home
             </HeaderItem>
-            <HeaderItem onClick={handleToggleNav} to="about" i="person-outline">
-              Sobre mi
-            </HeaderItem>
             <HeaderItem
               onClick={handleToggleNav}
               to="portfolio"
               i="folder-outline"
             >
               Proyectos
+            </HeaderItem>
+            <HeaderItem onClick={handleToggleNav} to="about" i="person-outline">
+              Sobre mi
             </HeaderItem>
           </ul>
         </nav>
