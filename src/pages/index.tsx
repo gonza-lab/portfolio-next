@@ -43,11 +43,11 @@ export default function Index({ data }: Props) {
             <Hero />
           </Element>
           <main>
-            <Element name="about" className="section">
-              <About />
-            </Element>
             <Element name="portfolio" className="section">
               <Portfolio />
+            </Element>
+            <Element name="about" className="section">
+              <About />
             </Element>
           </main>
         </Box>

@@ -9,7 +9,7 @@ export const PortfolioItemList = () => {
 
   return (
     <Fade>
-      <Grid container justifyContent="center" gap={14}>
+      <Grid container justifyContent="center" gap={{ xs: 4, md: 8 }}>
         {projects.map((project) => (
           <Grid item xs={12} key={project.id}>
             <PortfolioItem {...project} />
