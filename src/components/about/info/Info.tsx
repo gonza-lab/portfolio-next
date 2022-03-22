@@ -26,7 +26,7 @@ export const AboutInfo = () => {
         </Fade>
       </Grid> */}
       <Grid item xs={12}>
-        <Fade right>
+        <Fade>
           <Grid
             container
             className="about-info__data"
