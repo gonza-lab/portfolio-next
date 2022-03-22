@@ -7,10 +7,12 @@ export default interface Project {
   description: string;
   date: Date;
   content: Component[];
+  technologies: string;
   cover: {
     data: ResponseData<Image>;
   };
   slug: string;
   hero: string;
   url?: string;
+  github?: string;
 }
