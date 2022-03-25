@@ -17,7 +17,7 @@ export const About = () => {
         <Typography variant="h2" fontWeight="bolder">
           Sobre mi
         </Typography>
-        {about && <Markdown>{about.content}</Markdown>}
+        {about && <Markdown>{about.attributes.content}</Markdown>}
         <AboutInfo />
       </Container>
     </section>

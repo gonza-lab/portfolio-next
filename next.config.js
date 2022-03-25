@@ -6,7 +6,7 @@ module.exports = {
     return [
       {
         source: '/uploads/:path',
-        destination: `${process.env.NEXT_PUBLIC_API_URL}/uploads/:path`, // Proxy to Backend
+        destination: `${process.env.NEXT_PUBLIC_API_IMAGE_URL}/uploads/:path`, // Proxy to Backend
       },
     ];
   },

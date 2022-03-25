@@ -8,13 +8,17 @@ import dayjs from 'dayjs';
 import NextLink from 'next/link';
 import Image from 'next/image';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper';
+
 import Project from '../../interfaces/Project';
 
 import { Components } from '../../enums/Components';
 
 import Markdown from '../markdown/Markdown';
+import { ResponseData } from '../../interfaces/strapi/Response';
 
-const App: FunctionComponent<{ app: Project }> = ({ app }) => {
+const App: FunctionComponent<{ app: ResponseData<Project> }> = ({ app }) => {
   return (
     <Box>
       <NextLink href="/">
@@ -34,23 +38,55 @@ const App: FunctionComponent<{ app: Project }> = ({ app }) => {
         component="h1"
         fontWeight={600}
       >
-        <Link href={app.url} underline="hover" color="inherit" target="_blank">
-          {app.title}
+        <Link
+          href={app.attributes.url}
+          underline="hover"
+          color="inherit"
+          target="_blank"
+        >
+          {app.attributes.name}
         </Link>
       </Typography>
       <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', mb: 4 }}>
         <Typography variant="subtitle1">
-          {dayjs(app.date).format('DD/MM/YYYY')}
+          {dayjs(app.attributes.date).format('DD/MM/YYYY')}
         </Typography>
       </Box>
-      {app.content.map((component) => {
+      {app.attributes.content.map((component) => {
         switch (component.__component) {
           case Components.RichText:
             return <Markdown key={component.id}>{component.content}</Markdown>;
           case Components.Slider:
-            return <div key={component.id}>un slider feliz :D</div>;
+            return (
+              <Swiper
+                style={{
+                  height: 600,
+                  marginTop: 16,
+                }}
+                loop
+                modules={[Autoplay]}
+                autoplay={{
+                  delay: 2500,
+                  pauseOnMouseEnter: true,
+                  disableOnInteraction: false,
+                }}
+              >
+                {component.images.data.map((image) => (
+                  <SwiperSlide key={image.id}>
+                    <Image
+                      layout="fill"
+                      objectFit="cover"
+                      objectPosition="top"
+                      alt={image.attributes.alternativeText}
+                      src={image.attributes.url}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            );
 
           case Components.LargeMedia:
+            console.log(component);
             return (
               <Image
                 key={component.id}
