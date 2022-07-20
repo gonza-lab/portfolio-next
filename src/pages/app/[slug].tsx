@@ -23,7 +23,9 @@ export async function getServerSideProps(
   if (!ctx.params) return { notFound: true };
 
   const global = await dataService.getGlobal();
-  const projects = await dataService.getProjects({ slug: ctx.params.slug });
+  const projects = await dataService.getProjects({
+    filters: { slug: { $eq: ctx.query.slug } },
+  });
 
   return {
     props: {
