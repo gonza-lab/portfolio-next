@@ -86,7 +86,6 @@ const App: FunctionComponent<{ app: ResponseData<Project> }> = ({ app }) => {
             );
 
           case Components.LargeMedia:
-            console.log(component);
             return (
               <Image
                 key={component.id}
