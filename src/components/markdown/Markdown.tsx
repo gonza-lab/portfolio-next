@@ -21,6 +21,13 @@ const Markdown = ({ children }: { children: string }) => {
             {children}
           </Typography>
         ),
+        ul: ({ children }) => (
+          <ul
+            style={{ listStyle: 'disc', marginLeft: '20px', marginTop: '5px' }}
+          >
+            {children}
+          </ul>
+        ),
       }}
     >
       {children}

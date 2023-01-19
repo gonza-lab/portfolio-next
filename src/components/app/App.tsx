@@ -89,10 +89,10 @@ const App: FunctionComponent<{ app: ResponseData<Project> }> = ({ app }) => {
             return (
               <Image
                 key={component.id}
-                alt={component.media.alternativeText}
-                height={component.media.height}
-                width={component.media.width}
-                src={component.media.url}
+                alt={component.media.data.attributes.alternativeText}
+                height={component.media.data.attributes.height}
+                width={component.media.data.attributes.width}
+                src={component.media.data.attributes.url}
               />
             );
         }
