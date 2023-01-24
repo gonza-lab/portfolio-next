@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container } from '@mui/material';
 
-import { GetServerSidePropsContext } from 'next';
+import { GetStaticPropsContext } from 'next';
 
 import DataService from '../../services/DataService';
 
@@ -15,8 +15,19 @@ interface Props {
   data: IDataContextProject;
 }
 
-export async function getServerSideProps(
-  ctx: GetServerSidePropsContext<{ slug: string }>
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { slug: 'crm' } },
+      { params: { slug: 'telecom-institucional' } },
+      { params: { slug: 'landings-telecom' } },
+    ],
+    fallback: false,
+  };
+}
+
+export async function getStaticProps(
+  ctx: GetStaticPropsContext<{ slug: string }>
 ) {
   const dataService = new DataService();
 
@@ -24,7 +35,7 @@ export async function getServerSideProps(
 
   const global = await dataService.getGlobal();
   const projects = await dataService.getProjects({
-    filters: { slug: { $eq: ctx.query.slug } },
+    filters: { slug: { $eq: ctx.params?.slug } },
   });
 
   return {

@@ -14,7 +14,7 @@ interface Props {
   data: IDataContext;
 }
 
-export async function getServerSideProps(): Promise<{ props: Props }> {
+export async function getStaticProps(): Promise<{ props: Props }> {
   const dataService = new DataService();
 
   const global = await dataService.getGlobal();
